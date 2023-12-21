@@ -7,7 +7,10 @@ function PetsList() {
   let changeOnTyping = (e) => {
     setQuery(e.target.value);
   };
-
+  const [type, setType] = useState("");
+  let changeSelection = (s) => {
+    setType(s.target.value);
+  };
   // console.log(query);
   const petList = pets
     .filter((pet) => pet.name.toLowerCase().includes(query.toLowerCase()))
@@ -34,7 +37,7 @@ function PetsList() {
               </div>
               <br />
               Type:
-              <select className="form-select">
+              <select onChange={changeSelection} className="form-select">
                 <option value="" selected>
                   All
                 </option>
