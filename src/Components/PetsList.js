@@ -14,6 +14,7 @@ function PetsList() {
   // console.log(query);
   const petList = pets
     .filter((pet) => pet.name.toLowerCase().includes(query.toLowerCase()))
+    .filter((pet) => pet.type.toLowerCase().includes(type.toLowerCase()))
     .map((pet) => <PetItem pet={pet} key={pet.id} />);
 
   return (
